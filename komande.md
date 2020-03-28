@@ -19,9 +19,11 @@ ce ga git pratiti. Korisni flegovi su: `-f` i `--cached`. U slucaju prvog fajl c
 uklonjen iako je trenutno u stejdzingu. Trajno uklonjen. Zato i mora `-f`, da te spreci 
 da ne zajebes stvari.
 Ako izaberes drugu opciju, `--cached` onda ce samo iz stejdzinga u _working tree_ da se prebaci, odnosno nece ti ulaziti u 
-naredni komit. Ovo je i te kako korisno.
+naredni komit. Ovo je i te kako korisno. Taj fajl vise nije trekovan.
 Inace, kao ime fajla nije neophodno unositi samo ime konkretno ime fajla, ili foldera,
 vec je moguce da to budu i neki sabloni.
+Moguce je fajl skinuti sa stejdza i sa `$git reset HEAD <file>`, ali tada ce fajl i dalje
+biti trekovan, za razliku od komande `rm` kada to vise nije.
 
 ## Rebaziranje
 
