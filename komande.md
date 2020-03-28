@@ -19,3 +19,24 @@ Ako izaberes drugu opciju, `--cached` onda ce samo iz stejdzinga u _working tree
 naredni komit. Ovo je i te kako korisno.
 Inace, kao ime fajla nije neophodno unositi samo ime konkretno ime fajla, ili foldera,
 vec je moguce da to budu i neki sabloni.
+
+## Rebaziranje
+
+Ukapirali smo vec da kad se radi `$git rebase <base_branch>` da zapravo menjamo _bazu_ grane na kojoj
+smo trenutno sa granom koju navodimo kao argument komande. Onda smo isto tako ukapirali da je
+proces rebaziranja takav da se svi nasi novi komitovi, jedan po jedan, lepe na navedenu osnovu.
+Sa svakim komitom postoji mogucnost nastajanja konflikata koji se nakon resavanja potvrdjuju sa:
+
+```
+$git add <file_name> 
+$git rebase --continue 
+```
+
+Ako izaberes sve promene sa grane na koju rebaziras, tu ume da se nadje jedna poruka koja je malo zbunjujuca, 
+a koja kaze da promene nisu detektovane i bivas pitan da li si uradio prethodne dve komande 
+koje jesi bukvalno upravo uradio. :D
+To je zato sto `rebase` ocekuje neku promenu usled komita koji je sada naisao, a ti si ga odbacio.
+Zato u takvoj situaciji, kada ne zelis da prihvatis promene sa grane na kojoj si (nove promene), treba
+da uradis komandu:
+
+- `$git rebase --skip`
