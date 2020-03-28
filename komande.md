@@ -7,3 +7,5 @@ knjigu, ili, eto, nesto sto smatram zanimljivim.
 
 `$git commit -a` - dodaje samo _track_-ovane fajlove preskacuci stejdzing.
 Ovo dodatno znaci da novokreirani fajlovi nece biti dodati jer nisu _track_-ovani.
+Fajl se smatra _track_-ovanim u slucaju da je po nadzorom sistema kontrole verzije,
+te je i logicno sto novi fajlovi ne spadaju ovde.
