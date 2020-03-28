@@ -10,6 +10,9 @@ Ovo dodatno znaci da novokreirani fajlovi nece biti dodati jer nisu _track_-ovan
 Fajl se smatra _track_-ovanim u slucaju da je po nadzorom sistema kontrole verzije,
 te je i logicno sto novi fajlovi ne spadaju ovde.
 
+- `git commit --amend` - moze da sluzi da dodas zaboravljene fajlove u poslednji
+komit, ili ako nista nisi menjao od fajlova, samo poruku da promenis. Vise na sajtu.
+
 - `$git rm <file>` - komanda koja uklanja fajl sa gita.
 Nakon ove komande i komitovanja uklonjeni fajl se vise nece nalazi ni lokalno, niti
 ce ga git pratiti. Korisni flegovi su: `-f` i `--cached`. U slucaju prvog fajl ce biti
