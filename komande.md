@@ -5,7 +5,9 @@ Zaista nemam zelju da previse detaljno nesto opisujem
 da u kratkim crtama zapisem po koju stvar koju sam naucio citajuci
 knjigu, ili, eto, nesto sto smatram zanimljivim.
 
-## Komitovanje
+## Osnove
+
+### Komitovanje
 
 - `$git commit -a` - dodaje samo _track_-ovane fajlove preskacuci stejdzing.
 Ovo dodatno znaci da novokreirani fajlovi nece biti dodati jer nisu _track_-ovani.
@@ -15,7 +17,7 @@ te je i logicno sto novi fajlovi ne spadaju ovde.
 - `git commit --amend` - moze da sluzi da dodas zaboravljene fajlove u poslednji
 komit, ili ako nista nisi menjao od fajlova, samo poruku da promenis. Vise na sajtu.
 
-## Uklanjanje fajlova
+### Uklanjanje fajlova
 
 - `$git rm <file>` - komanda koja uklanja fajl sa gita.
 Nakon ove komande i komitovanja uklonjeni fajl se vise nece nalazi ni lokalno, niti
@@ -29,7 +31,7 @@ vec je moguce da to budu i neki sabloni.
 Moguce je fajl skinuti sa stejdza i sa `$git reset HEAD <file>`, ali tada ce fajl i dalje
 biti trekovan, za razliku od komande `rm` kada to vise nije.
 
-## Rebaziranje
+### Rebaziranje
 
 Ukapirali smo vec da kad se radi `$git rebase <base_branch>` da zapravo menjamo _bazu_ grane na kojoj
 smo trenutno sa granom koju navodimo kao argument komande. Onda smo isto tako ukapirali da je
@@ -50,7 +52,7 @@ da uradis komandu:
 
 - `$git rebase --skip`
 
-## Alijasi
+### Alijasi
 
 Prilikom cestog koriscenja (dugih) komandi povoljno je kreiranje alijasa:
 
@@ -60,3 +62,15 @@ e.g.
 
 - `$ git config --global alias.unstage 'reset HEAD --' ` - ovde su navodnici kod komande potrebni jer
 imamo razmake u okviru nje. Upotreba bi bila `$git unstage fileA`.
+
+### Istorija
+
+- `$git log` je osnovna komanda kojoj se dodaju odredjeni modifikatori u cilju preciziranja izvestaja.
+Prolazeci kroz knjigu dodavacu one koje smatram korisnim.
+    - `--oneline --decorate` koncizan prikaz gde grane trenutno pokazuju
+
+## Grananje
+
+Kreiranje grane je prosto kreiranje pointera na odgovarajuci komit. Komit je takodje pointer na stablo
+koje ukazuje na blob-ove odnosno promenjene fajlove, `snapshot`. Koja je grana trenutno aktivna, odredjujemo
+pomocu `HEAD` pointera.
