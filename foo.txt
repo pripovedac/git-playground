@@ -3,4 +3,8 @@ Nova linija.
 Da sa mastera.
 Master za lorem.
 Master lorem ipsum dolor.
+<<<<<<< HEAD
 Master zeza dolor.
+=======
+Dolor napisao recenicu.
+>>>>>>> feat(dolor)
