@@ -3,3 +3,4 @@ Nova linija.
 Da sa mastera.
 Master za lorem.
 Master ispum.
+Ipsum pise.
