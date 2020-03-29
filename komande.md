@@ -78,3 +78,5 @@ prednjaci u odnosu na pointer gde smo sada, to se nece videti.
 Kreiranje grane je prosto kreiranje pointera na odgovarajuci komit. Komit je takodje pointer na stablo
 koje ukazuje na blob-ove odnosno promenjene fajlove, `snapshot`. Koja je grana trenutno aktivna, odredjujemo
 pomocu `HEAD` pointera.
+Grane su izuzetno jefitne. To je mali fajl od 40 karaktera SHA-1 ceksume koji ukazuju na odgovarajuci komit.
+Jedna grana je 41B, 40 karaktera + 1 bajt za novu liniju.
