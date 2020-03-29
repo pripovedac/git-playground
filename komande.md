@@ -68,6 +68,10 @@ imamo razmake u okviru nje. Upotreba bi bila `$git unstage fileA`.
 - `$git log` je osnovna komanda kojoj se dodaju odredjeni modifikatori u cilju preciziranja izvestaja.
 Prolazeci kroz knjigu dodavacu one koje smatram korisnim.
     - `--oneline --decorate` koncizan prikaz gde grane trenutno pokazuju
+Imaj na umu da samo navodjenje komande _bez definisanje grane_ daje istoriju od pointera te grane u proslost. Odnosno ako neka grana
+prednjaci u odnosu na pointer gde smo sada, to se nece videti.
+    - `<ime_grane>` uvid u istoriju konkretne grane. Ukoliko zelimo da vidimo sve grane, fleg je potreban ti je fleg `--all`
+    - `--graph` prikaz u vidu grafa
 
 ## Grananje
 
