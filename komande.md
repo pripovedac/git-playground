@@ -5,6 +5,8 @@ Zaista nemam zelju da previse detaljno nesto opisujem
 da u kratkim crtama zapisem po koju stvar koju sam naucio citajuci
 knjigu, ili, eto, nesto sto smatram zanimljivim.
 
+## Komitovanje
+
 - `$git commit -a` - dodaje samo _track_-ovane fajlove preskacuci stejdzing.
 Ovo dodatno znaci da novokreirani fajlovi nece biti dodati jer nisu _track_-ovani.
 Fajl se smatra _track_-ovanim u slucaju da je po nadzorom sistema kontrole verzije,
@@ -12,6 +14,8 @@ te je i logicno sto novi fajlovi ne spadaju ovde.
 
 - `git commit --amend` - moze da sluzi da dodas zaboravljene fajlove u poslednji
 komit, ili ako nista nisi menjao od fajlova, samo poruku da promenis. Vise na sajtu.
+
+## Uklanjanje fajlova
 
 - `$git rm <file>` - komanda koja uklanja fajl sa gita.
 Nakon ove komande i komitovanja uklonjeni fajl se vise nece nalazi ni lokalno, niti
@@ -45,3 +49,14 @@ Zato u takvoj situaciji, kada ne zelis da prihvatis promene sa grane na kojoj si
 da uradis komandu:
 
 - `$git rebase --skip`
+
+## Alijasi
+
+Prilikom cestog koriscenja (dugih) komandi povoljno je kreiranje alijasa:
+
+- `$git config --global alias.<alias_name> <command>`
+
+e.g.
+
+- `$ git config --global alias.unstage 'reset HEAD --' ` - ovde su navodnici kod komande potrebni jer
+imamo razmake u okviru nje. Upotreba bi bila `$git unstage fileA`.
