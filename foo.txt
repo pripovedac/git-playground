@@ -1,1 +1,2 @@
 Okej, hocu da proverim nesto sa preskakanjem odredjenih faza u gitu.
+Nova linija.
