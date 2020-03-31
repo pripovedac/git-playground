@@ -5,3 +5,4 @@ Cetvrta.
 Peta linija.
 Sest.
 Sedam.
+Master osam.
