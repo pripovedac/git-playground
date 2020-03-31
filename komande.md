@@ -98,3 +98,14 @@ koje ukazuje na blob-ove odnosno promenjene fajlove, `snapshot`. Koja je grana t
 pomocu `HEAD` pointera.
 Grane su izuzetno jefitne. To je mali fajl od 40 karaktera SHA-1 ceksume koji ukazuju na odgovarajuci komit.
 Jedna grana je 41B, 40 karaktera + 1 bajt za novu liniju.
+
+Pregled grana koje su spojene u trenutnu granu je moguce uraditi sa:
+
+- `$git branch --merged` 
+
+ili one koje nisu spojene:
+
+- `$git branch --no-merged`
+
+Ovo je korisno recimo kad smo na `master` grani pa da proverimo koje grane su spojene kako bismo mogli da 
+ih obrisemo. Ili da vidimo na cemu se jos uvek radi.
