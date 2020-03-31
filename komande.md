@@ -33,43 +33,6 @@ vec je moguce da to budu i neki sabloni.
 Moguce je fajl skinuti sa stejdza i sa `$git reset HEAD <file>`, ali tada ce fajl i dalje
 biti trekovan, za razliku od komande `rm` kada to vise nije.
 
-### Rebaziranje
-
-Ukapirali smo vec da kad se radi `$git rebase <base_branch>` da zapravo menjamo _bazu_ grane na kojoj
-smo trenutno sa granom koju navodimo kao argument komande. Onda smo isto tako ukapirali da je
-proces rebaziranja takav da se svi nasi novi komitovi, jedan po jedan, lepe na navedenu osnovu.
-Sa svakim komitom postoji mogucnost nastajanja konflikata koji se nakon resavanja potvrdjuju sa:
-
-```
-$git add <file_name> 
-$git rebase --continue 
-```
-
-Ako izaberes sve promene sa grane na koju rebaziras, tu ume da se nadje jedna poruka koja je malo zbunjujuca, 
-a koja kaze da promene nisu detektovane i bivas pitan da li si uradio prethodne dve komande 
-koje jesi bukvalno upravo uradio. :D
-To je zato sto `rebase` ocekuje neku promenu usled komita koji je sada naisao, a ti si ga odbacio.
-Zato u takvoj situaciji, kada ne zelis da prihvatis promene sa grane na kojoj si (nove promene), treba
-da uradis komandu:
-
-- `$git rebase --skip`
-
-Kada zavrsimo sa resavanjem konflikata neophodno je da pusujemo sa flegom `--force`. Zasto?
-Zato sto `push` u pozadini funkcionise kao `fast-forward`, a istorija nase lokalne
-grane i grane na serveru vise nije linearna.
-Svi komitovi su prebaceni na granu nad kojom smo rebazirali, a ti neki komitovi na serveru su
-ostali da _vise_.
-
-- - base branch - - local foo branch commits
-        \
-        server branch foo
-
-Zato ne mozemo prostim `fast-forward` da spojimo `local foo` i `server foo`.
-
-Kada zavrsimo rebaziranje lokalni komitovi ce biti ispred <base_branch> tako da moramo da 
-se prebacimo na nju i uradimo
-`$git merge <rebased_branch>` kako bismo premotali unapred pokazivac osnovne grane.
-
 ### Alijasi
 
 Prilikom cestog koriscenja (dugih) komandi povoljno je kreiranje alijasa:
@@ -109,3 +72,58 @@ ili one koje nisu spojene:
 
 Ovo je korisno recimo kad smo na `master` grani pa da proverimo koje grane su spojene kako bismo mogli da 
 ih obrisemo. Ili da vidimo na cemu se jos uvek radi.
+
+### Spajanje (_eng._ merge)
+
+Spajanje se vrsi tako sto odes na granu u koju hoces da spojis neku drugu granu komandom:
+
+- `#git merge <branch_name>`
+
+Tada se desava jedan od dva scenarija.
+
+Ako je grana u koju spajamo nije divergirala od spojene grane onda se samo pomeri pokazivac
+grane u koju spajamo, tzv. _fast forwarding_. U suprotnog se generise komit spajanja.
+
+### Rebaziranje
+
+Flou kad se radi rebaziranje sa ciljem spajanja je da nakon izvrsenog uspesnog rebaziranja
+uradimo spajanje istom onom komandom za merge-ovanje. Tada pomeramo pointer grane u 
+koju smo spojili unapred. Tj. mi smo rebaziranjem omogucili _fast-forwarding_.
+A onda sve to pushujemo kako bismo i remote pointer grane u koju smo spojili pomerili unapred.
+
+Kako se uspesno radi rebaziranje u nastavku:
+
+Ukapirali smo vec da kad se radi `$git rebase <base_branch>` da zapravo menjamo _bazu_ grane na kojoj
+smo trenutno sa granom koju navodimo kao argument komande. Onda smo isto tako ukapirali da je
+proces rebaziranja takav da se svi nasi novi komitovi, jedan po jedan, lepe na navedenu osnovu.
+Sa svakim komitom postoji mogucnost nastajanja konflikata koji se nakon resavanja potvrdjuju sa:
+
+```
+$git add <file_name> 
+$git rebase --continue 
+```
+
+Ako izaberes sve promene sa grane na koju rebaziras, tu ume da se nadje jedna poruka koja je malo zbunjujuca, 
+a koja kaze da promene nisu detektovane i bivas pitan da li si uradio prethodne dve komande 
+koje jesi bukvalno upravo uradio. :D
+To je zato sto `rebase` ocekuje neku promenu usled komita koji je sada naisao, a ti si ga odbacio.
+Zato u takvoj situaciji, kada ne zelis da prihvatis promene sa grane na kojoj si (nove promene), treba
+da uradis komandu:
+
+- `$git rebase --skip`
+
+Kada zavrsimo sa resavanjem konflikata neophodno je da pusujemo sa flegom `--force`. Zasto?
+Zato sto `push` u pozadini funkcionise kao `fast-forward`, a istorija nase lokalne
+grane i grane na serveru vise nije linearna.
+Svi komitovi su prebaceni na granu nad kojom smo rebazirali, a ti neki komitovi na serveru su
+ostali da _vise_.
+
+- - base branch - - local foo branch commits
+        \
+        server branch foo
+
+Zato ne mozemo prostim `fast-forward` da spojimo `local foo` i `server foo`.
+
+Kada zavrsimo rebaziranje lokalni komitovi ce biti ispred <base_branch> tako da moramo da 
+se prebacimo na nju i uradimo
+`$git merge <rebased_branch>` kako bismo premotali unapred pokazivac osnovne grane.
