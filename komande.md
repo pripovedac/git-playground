@@ -54,6 +54,22 @@ da uradis komandu:
 
 - `$git rebase --skip`
 
+Kada zavrsimo sa resavanjem konflikata neophodno je da pusujemo sa flegom `--force`. Zasto?
+Zato sto `push` u pozadini funkcionise kao `fast-forward`, a istorija nase lokalne
+grane i grane na serveru vise nije linearna.
+Svi komitovi su prebaceni na granu nad kojom smo rebazirali, a ti neki komitovi na serveru su
+ostali da _vise_.
+
+- - base branch - - local foo branch commits
+        \
+        server branch foo
+
+Zato ne mozemo prostim `fast-forward` da spojimo `local foo` i `server foo`.
+
+Kada zavrsimo rebaziranje lokalni komitovi ce biti ispred <base_branch> tako da moramo da 
+se prebacimo na nju i uradimo
+`$git merge <rebased_branch>` kako bismo premotali unapred pokazivac osnovne grane.
+
 ### Alijasi
 
 Prilikom cestog koriscenja (dugih) komandi povoljno je kreiranje alijasa:
